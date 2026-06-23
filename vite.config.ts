@@ -20,7 +20,8 @@ export default defineConfig({
         background_color: '#fdf6e3',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/',
+        start_url: '/biblia/',
+        scope: '/biblia/',
         icons: [
           {
             src: 'icons/icon-192.png',
