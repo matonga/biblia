@@ -17,7 +17,7 @@ let bibleData: BibleData | null = null;
 export async function loadBible(): Promise<BibleData> {
   if (bibleData) return bibleData;
 
-  const res = await fetch('/book.json');
+  const res = await fetch(import.meta.env.BASE_URL + 'book.json');
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const raw: BibleEntry[] = await res.json();
 
