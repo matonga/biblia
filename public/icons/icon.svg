@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="80" fill="#5b4636"/>
+  <!-- Book body -->
+  <rect x="120" y="100" width="272" height="340" rx="14" fill="#fdf6e3"/>
+  <rect x="120" y="100" width="20" height="340" rx="6" fill="#d4b896"/>
+  <!-- Cross on cover -->
+  <rect x="237" y="165" width="38" height="130" rx="8" fill="#8b5e3c"/>
+  <rect x="200" y="215" width="112" height="38" rx="8" fill="#8b5e3c"/>
+</svg>
