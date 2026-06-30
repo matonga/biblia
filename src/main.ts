@@ -6,6 +6,7 @@ import { renderIndexView }     from './views/index-view';
 import { renderReaderView }    from './views/reader-view';
 import { renderSettingsView }  from './views/settings-view';
 import { renderBookmarksView } from './views/bookmarks-view';
+import { onInstallAvailable, promptInstall } from './pwa';
 
 const app = document.getElementById('app')!;
 
@@ -70,6 +71,42 @@ loadBible().then(() => {
 }).catch((err: Error) => {
   mainContent.innerHTML = `<div class="error">Error cargando la Biblia: ${err.message}</div>`;
 });
+
+const INSTALL_DISMISS_KEY  = 'biblia:install-dismissed';
+const INSTALL_DISMISS_DAYS = 14;
+
+function showInstallBanner(): void {
+  if (window.matchMedia('(display-mode: standalone)').matches) return;
+
+  const dismissedAt = localStorage.getItem(INSTALL_DISMISS_KEY);
+  if (dismissedAt) {
+    const daysSince = (Date.now() - Number(dismissedAt)) / (1000 * 60 * 60 * 24);
+    if (daysSince < INSTALL_DISMISS_DAYS) return;
+  }
+
+  const banner = document.createElement('div');
+  banner.className = 'install-banner';
+  banner.innerHTML = `
+    <span class="install-banner-text">Instalá la app para leer sin conexión</span>
+    <div class="install-banner-actions">
+      <button class="btn btn-primary" id="install-accept">Instalar</button>
+      <button class="install-banner-close" id="install-dismiss" aria-label="Cerrar">✕</button>
+    </div>
+  `;
+  document.body.appendChild(banner);
+
+  banner.querySelector('#install-accept')!.addEventListener('click', async () => {
+    await promptInstall();
+    banner.remove();
+  });
+
+  banner.querySelector('#install-dismiss')!.addEventListener('click', () => {
+    localStorage.setItem(INSTALL_DISMISS_KEY, String(Date.now()));
+    banner.remove();
+  });
+}
+
+onInstallAvailable(showInstallBanner);
 
 function updateNavActive(route: Route): void {
   bottomNav.querySelectorAll<HTMLButtonElement>('.nav-btn').forEach(btn => {

@@ -103,6 +103,41 @@ textarea { resize: vertical; }
   font-size: 1.1rem;
 }
 
+/* ── Install banner ───────────────────────────────── */
+.install-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: calc(0.75rem + var(--safe-top)) 1rem 0.75rem;
+  background: var(--surface-raised);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 10px var(--shadow);
+}
+
+.install-banner-text {
+  flex: 1;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.install-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.install-banner-close {
+  font-size: 1rem;
+  color: var(--text-muted);
+  padding: 0.25rem;
+}
+
 /* ── App shell ────────────────────────────────────── */
 #app {
   max-width: var(--max-width);
