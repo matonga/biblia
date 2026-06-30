@@ -15,6 +15,7 @@ export function renderIndexView(container: HTMLElement): void {
                value="${escAttr(searchTerm)}"
                autocomplete="off" spellcheck="false">
       </div>
+      <h1 class="toc-title">El libro del pueblo de Dios</h1>
       <div id="toc-body"></div>
     </div>
   `;

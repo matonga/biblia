@@ -26,7 +26,12 @@ function renderList(list: HTMLElement): void {
       <div class="bookmark-empty">
         No hay marcadores aún.<br>
         Mientras leés, presioná el botón<br>
-        🔖 para guardar tu posición.
+        <span class="bookmark-empty-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+          </svg>
+        </span>
+        para guardar tu posición.
       </div>
     `;
     return;

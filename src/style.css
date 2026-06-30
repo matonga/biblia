@@ -47,6 +47,7 @@ body.dark {
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  font-size: var(--font-size);
 }
 
 body {
@@ -202,6 +203,15 @@ textarea { resize: vertical; }
 .search-input:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.toc-title {
+  padding: 1rem 1rem 0.5rem;
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
 }
 
 /* TOC tree */
@@ -629,6 +639,24 @@ textarea { resize: vertical; }
   color: var(--text-muted);
   font-family: var(--font-body);
   line-height: 2;
+}
+
+.bookmark-empty-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  vertical-align: middle;
+}
+
+.bookmark-empty-icon svg {
+  width: 0.85em;
+  height: 0.85em;
+  fill: currentColor;
 }
 
 .bookmark-card {
